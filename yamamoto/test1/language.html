@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/test1.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
+	<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="js/jquery.sidr.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$('button.btn-width99').on('click', function() {
+			if ($(this).hasClass('focus-manual')) {
+				$(this).removeClass('focus-manual');
+			} else {
+				$(this).addClass('focus-manual');
+			}
+		});
+	});
+	</script>
+</head>
+
+<body>
+
+	<div class="text-center">
+	<h1 id="title" class="text-success">交流したい国を設定しよう！</h1>
+
+	<form>
+		<input type="text" class="form-control" placeholder="検索キーワード"><br>
+		<button type="submit" class="btn btn-success">検索</button>
+	</form>
+
+	<form>
+		<ul class="list-group">
+		    <li><button type="button" class="btn btn-success btn-width99">英語</button></li>
+			<li><button type="button" class="btn btn-success btn-width99">フランス語</button></li>
+			<li><button type="button" class="btn btn-success btn-width99">中国語</button></li>
+			<li><button type="button" class="btn btn-success btn-width99">日本語</button></li>
+			<li><button type="button" class="btn btn-success btn-width99">ドイツ語</button></li>
+		</ul>
+		<button type="submit" class="btn btn-success">設定</button>
+	</form>
+
+
+
+
+</body>
+</html>
