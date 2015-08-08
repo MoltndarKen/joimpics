@@ -1,0 +1,149 @@
+﻿<html>
+<!--// HEAD //////////////////////////////////////////////////////////-->
+<head>
+	<title>Joynpic</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/test1.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
+	<link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css" />
+	<style>
+	<!--
+		h1#title { 
+			font-size:33px;
+			font-weight: bold;
+			margin:15px;
+		}
+		div.div_btn_side {
+			width: 100%;
+			text-align:center;
+		}
+		button.btn_side {
+			width:32%;
+		}
+		div.div_search {
+			position: fixed;
+			margin: 5px;
+			background-color: white;
+			padding: 2px 5px;
+		}
+		.fa {
+			font-size: 25px;
+			cursor: pointer;
+			margin-top: 3px;
+			position: relative;
+			top: 4px;
+		}
+		li {
+			margin: 5px 0px;
+		}
+		
+		button.btn-width99 {
+			width: 99%;
+			margin: 2px 0px;
+		}
+		button.btn-primary.focus-manual {
+			background-color: green;
+		}
+	-->
+	</style>
+</head>
+
+<!--// BODY //////////////////////////////////////////////////////////-->
+<body>
+	<div class="text-center" id="sidr">
+		<h1 id="title">Joinpic !!</h1>
+		<div class="btn-group div_btn_side">
+			<button id="btn_hoge1" class="btn btn-warning btn_side"><i class="glyphicon glyphicon-heart"></i>使い方</button>
+			<button id="btn_hoge2" class="btn btn-primary btn_side disabled"><i class="glyphicon glyphicon-headphones"></i>応援</button>
+			<button id="btn_hoge3" class="btn btn-success btn_side disabled"><i class="glyphicon glyphicon-empty"></i>言語</button>
+	    </div>
+		<hr noshade="noshade">
+		
+		<div id="div_hoge1">
+			<ol style="text-align:left;">
+				<li>まずは、ユーザー登録をしよう！</li>
+				<li>応援したい選手を登録しよう！</li>
+				<li>マップに表示された同じ仲間の共に駆けつけよう！</li>
+				<li>駆けつけた仲間と一緒にオリンピックを盛り上がろう！</li>
+				<li>そのあとも、国際交流をエンジョイ！</li>
+			</ol>
+			<button id="btn_join" class="btn btn-danger" style="width:95%; height:45px; font-size:25px;">Join !!</button>
+		</div>
+		
+		<div id="div_hoge2">
+			<ul>
+				<li><button type="button" class="btn btn-primary btn-width99">ウサイン・ボルト</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">陸上(100M)</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">陸上(200M)</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">サッカー(ジャマイカ代表)</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">水泳</button></li>
+			</ul>
+		</div>
+		
+		<div id="div_hoge3">
+			<ul>
+				<li><button type="button" class="btn btn-success btn-width99">日本語</button></li>
+				<li><button type="button" class="btn btn-success btn-width99">英語</button></li>
+				<li><button type="button" class="btn btn-success btn-width99">フランス語</button></li>
+			</ul>
+		</div>
+		
+	</div>
+		<div class="div_search">
+			<span id="simple-menu-button" class="fa fa-bars"></span>
+			<input type="text" placeholder="検索" class="form-control" style="display:inline; width:200px;" />
+		</div>
+		
+		<!-- TODO -->
+		<img src="img/testmap1.png" class="img-responsive" alt="Responsive image">
+		</div>
+	</div>
+
+<!--// SCRIPT ////////////////////////////////////////////////////////-->
+<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="js/jquery.sidr.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$('#simple-menu-button').sidr();
+
+	var bindEvents = function() {
+		$('#btn_hoge1').on('click', function() {
+			$('#div_hoge1').show();
+			$('#div_hoge2').hide();
+			$('#div_hoge3').hide();
+		});
+		$('#btn_hoge2:not(.disabled)').on('click', function() {
+			$('#div_hoge1').hide();
+			$('#div_hoge2').show();
+			$('#div_hoge3').hide();
+		});
+		$('#btn_hoge3:not(.disabled)').on('click', function() {
+			$('#div_hoge1').hide();
+			$('#div_hoge2').hide();
+			$('#div_hoge3').show();
+		});
+	};
+
+	$('button#btn_join').on('click', function() {
+		$('.btn').removeClass('disabled');
+		bindEvents();
+	});
+
+	$('button.btn-width99').on('click', function() {
+		if ($(this).hasClass('focus-manual')) {
+			$(this).removeClass('focus').removeClass('focus-manual');
+		} else {
+			$(this).addClass('focus').addClass('focus-manual');
+		}
+	});
+
+	// Iint
+	$('#simple-menu-button').click();
+});
+</script>
+
+<!--//////////////////////////////////////////////////////////////////-->
+</body>
+</html>
