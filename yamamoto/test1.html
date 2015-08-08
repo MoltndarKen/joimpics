@@ -1,0 +1,85 @@
+﻿<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/test1.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
+		<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="js/jquery.sidr.min.js"></script>
+		
+		<script>
+		$(document).ready(function() {
+			$('#simple-menu-button').sidr();
+				$('#btn_hoge1').on('click', function() {
+				$('#div_hoge1').show();
+				$('#div_hoge2').hide();
+				$('#div_hoge3').hide();
+			});
+			$('#btn_hoge2').on('click', function() {
+				$('#div_hoge1').hide();
+				$('#div_hoge2').show();
+				$('#div_hoge3').hide();
+			});
+			$('#btn_hoge3').on('click', function() {
+				$('#div_hoge1').hide();
+				$('#div_hoge2').hide();
+				$('#div_hoge3').show();
+			});
+		});
+		</script>
+		
+		
+		
+		
+    <body>
+    	<div class="text-center" id="sidr">
+			<h1>Hello<br>Bootstrap!!</h1>
+			<div class="btn-group">
+		        <button id="btn_hoge1" class="btn btn-warning"><i class="glyphicon glyphicon-heart"></i>使い方</button>
+		        <button id="btn_hoge2" class="btn btn-primary"><i class="glyphicon glyphicon-headphones"></i>応援</button>
+		        <button id="btn_hoge3" class="btn btn-success"><i class="glyphicon glyphicon-empty"></i>言語</button>
+		    </div>
+			<form>
+				<input type="text" class="form-control" placeholder="検索キーワード">
+				<button type="submit" class="btn btn-primary">検索</button>
+			</form>
+			<hr noshade="noshade">
+			
+			<div id="div_hoge1">
+				<ol>
+					<li><button type="button" class="btn btn-warning">warning</button></li>
+					<li><button type="button" class="btn btn-warning">warning</button></li>
+					<li><button type="button" class="btn btn-warning">warning</button></li>
+					<li><button type="button" class="btn btn-warning">warning</button></li>
+					<li><button type="button" class="btn btn-warning">warning</button></li>
+				</ol>
+			</div>
+			
+			<div id="div_hoge2">
+				<ul>
+					<li><button type="button" class="btn btn-primary">Primary</button></li>
+					<li><button type="button" class="btn btn-primary">Primary</button></li>
+					<li><button type="button" class="btn btn-primary">Primary</button></li>
+					<li><button type="button" class="btn btn-primary">Primary</button></li>
+					<li><button type="button" class="btn btn-primary">Primary</button></li>
+				</ul>
+			</div>
+			
+			<div id="div_hoge3">
+				<ul>
+					<li><button type="button" class="btn btn-success">success</button></li>
+					<li><button type="button" class="btn btn-success">success</button></li>
+					<li><button type="button" class="btn btn-success">success</button></li>
+					<li><button type="button" class="btn btn-success">success</button></li>
+					<li><button type="button" class="btn btn-success">success</button></li>
+				</ul>
+			</div>
+			
+		</div>
+
+				<button id="simple-menu-button">hoge</button>
+				<img src="img/testmap1.png" class="img-responsive" alt="Responsive image">
+			</div>
+	  	</div>
+    </body>
+</html>
