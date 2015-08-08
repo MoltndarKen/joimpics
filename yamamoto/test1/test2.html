@@ -3,10 +3,11 @@
 <head>
 	<title>Joynpic</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/test1.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/test1.css" />
 	<link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
-	<link rel="stylesheet" href="font-awesome-4.4.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.4.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.min.css" />
 	<style>
 	<!--
 		h1#title { 
@@ -39,11 +40,26 @@
 		}
 		
 		button.btn-width99 {
-			width: 99%;
+			width: 95%;
 			margin: 2px 0px;
 		}
 		button.btn-primary.focus-manual {
-			background-color: green;
+			background-color: #ff55aa;
+		}
+		button.btn-success.focus-manual {
+			background-color: #ff55aa;
+		}
+		div.ui-dialog {
+			z-index: 99999999;
+		}
+		
+		#close_sidr {
+			font-size: 20px;
+			color: #888888;
+			cursor: pointer;
+			position: absolute;
+			right: 15px;
+			top: 18px;
 		}
 	-->
 	</style>
@@ -52,11 +68,12 @@
 <!--// BODY //////////////////////////////////////////////////////////-->
 <body>
 	<div class="text-center" id="sidr">
+		<i id="close_sidr" class="glyphicon glyphicon-chevron-left"></i>
 		<h1 id="title">Joinpic !!</h1>
 		<div class="btn-group div_btn_side">
-			<button id="btn_hoge1" class="btn btn-warning btn_side"><i class="glyphicon glyphicon-heart"></i>使い方</button>
-			<button id="btn_hoge2" class="btn btn-primary btn_side disabled"><i class="glyphicon glyphicon-headphones"></i>応援</button>
-			<button id="btn_hoge3" class="btn btn-success btn_side disabled"><i class="glyphicon glyphicon-empty"></i>言語</button>
+			<button id="btn_hoge1" class="btn btn-warning btn_side"><i class="glyphicon glyphicon-heart"></i>&nbsp;使い方</button>
+			<button id="btn_hoge2" class="btn btn-primary btn_side disabled"><i class="glyphicon glyphicon-headphones"></i>&nbsp;応援</button>
+			<button id="btn_hoge3" class="btn btn-success btn_side disabled"><i class="glyphicon glyphicon-book"></i>&nbsp;言語</button>
 	    </div>
 		<hr noshade="noshade">
 		
@@ -68,10 +85,14 @@
 				<li>駆けつけた仲間と一緒にオリンピックを盛り上がろう！</li>
 				<li>そのあとも、国際交流をエンジョイ！</li>
 			</ol>
-			<button id="btn_join" class="btn btn-danger" style="width:95%; height:45px; font-size:25px;">Join !!</button>
+			<button id="btn_join" class="btn btn-danger" style="width:95%; height:45px; font-size:25px;">参加 !!</button>
 		</div>
 		
 		<div id="div_hoge2">
+			<ol style="text-align:left;">
+				<li>選手・競技を選択</li>
+				<li>仲間をマップに表示！</li>
+			</ol>
 			<ul>
 				<li><button type="button" class="btn btn-primary btn-width99">ウサイン・ボルト</button></li>
 				<li><button type="button" class="btn btn-primary btn-width99">陸上(100M)</button></li>
@@ -79,16 +100,21 @@
 				<li><button type="button" class="btn btn-primary btn-width99">サッカー(ジャマイカ代表)</button></li>
 				<li><button type="button" class="btn btn-primary btn-width99">水泳</button></li>
 			</ul>
+			<button id="btn_set_sport" class="btn btn-warning" style="width:95%; font-size:20px; font-weight:bold;">設定</button>
 		</div>
 		
 		<div id="div_hoge3">
+			<ol style="text-align:left;">
+				<li>話せる言語を選択</li>
+				<li>仲間をマップに表示！</li>
+			</ol>
 			<ul>
 				<li><button type="button" class="btn btn-success btn-width99">日本語</button></li>
 				<li><button type="button" class="btn btn-success btn-width99">英語</button></li>
 				<li><button type="button" class="btn btn-success btn-width99">フランス語</button></li>
 			</ul>
+			<button id="btn_set_lang" class="btn btn-warning" style="width:95%; font-size:20px; font-weight:bold;">設定</button>
 		</div>
-		
 	</div>
 		<div class="div_search">
 			<span id="simple-menu-button" class="fa fa-bars"></span>
@@ -96,17 +122,29 @@
 		</div>
 		
 		<!-- TODO -->
-		<img src="img/testmap1.png" class="img-responsive" alt="Responsive image">
+		<img src="img/samplemap.jpg" class="img-responsive" alt="Responsive image">
 		</div>
 	</div>
 
+	<div id="div_dialog_certify">
+		<h3>アプリを利用して認証</h3>
+	</div>
+	<div id="div_dialog_sport">
+		<h3>応援する競技・選手を登録</h3>
+	</div>
+	<div id="div_dialog_lang">
+		<h3>話せる言語を登録</h3>
+	</div>
+
 <!--// SCRIPT ////////////////////////////////////////////////////////-->
-<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" charset="UTF-8" src="js/jquery.sidr.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
 
 <script>
 $(document).ready(function() {
 	$('#simple-menu-button').sidr();
+	$('#close_sidr').sidr();
 
 	var bindEvents = function() {
 		$('#btn_hoge1').on('click', function() {
@@ -126,9 +164,14 @@ $(document).ready(function() {
 		});
 	};
 
-	$('button#btn_join').on('click', function() {
-		$('.btn').removeClass('disabled');
-		bindEvents();
+	$('#btn_join').on('click', function() {
+		$dialogCertify.dialog('open');
+	});
+	$('#btn_set_sport').on('click', function() {
+		$dialogSetSport.dialog('open');
+	});
+	$('#btn_set_lang').on('click', function() {
+		$dialogSetLang.dialog('open');
 	});
 
 	$('button.btn-width99').on('click', function() {
@@ -136,6 +179,66 @@ $(document).ready(function() {
 			$(this).removeClass('focus').removeClass('focus-manual');
 		} else {
 			$(this).addClass('focus').addClass('focus-manual');
+		}
+	});
+
+	// 認証Dialog
+	var $dialogCertify = $('#div_dialog_certify').dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: 'ユーザー認証',
+		buttons: {
+			"認証": function() {
+				$('.btn').removeClass('disabled');
+				bindEvents();
+				// $('#btn_join').addClass('disabled');
+				$dialogCertify.dialog( "close" );
+			},
+			'閉じる' : function() {
+				$dialogCertify.dialog( "close" );
+			}
+		},
+		close: function() {
+		}
+	});
+
+	// 競技・選手設定Dialog
+	var $dialogSetSport = $('#div_dialog_sport').dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: '競技・選手設定',
+		buttons: {
+			"決定": function() {
+				$dialogSetSport.dialog( "close" );
+			},
+			'閉じる' : function() {
+				$dialogSetSport.dialog( "close" );
+			}
+		},
+		close: function() {
+		}
+	});
+
+	// 言語設定Dialog
+	var $dialogSetLang = $('#div_dialog_lang').dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: '言語設定',
+		buttons: {
+			"決定": function() {
+				$dialogSetLang.dialog( "close" );
+			},
+			'閉じる' : function() {
+				$dialogSetLang.dialog( "close" );
+			}
+		},
+		close: function() {
 		}
 	});
 
