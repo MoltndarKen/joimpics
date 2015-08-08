@@ -18,64 +18,45 @@
     </head>
 
     <body>
-        <div id="sidr">
         
-        
-        <h1>aaaaaaaaaau</h1>
-        
-		    <h3>スライドインメニュー</h3>
-		    <div class="btn-group">
-		        <button class="btn btn-success"><i class="glyphicon glyphicon-heart">Top</i></button>
-		        <button class="btn btn-info"><i class="glyphicon glyphicon-heart">Info</i></button>
-		        <button class="btn btn-info"><i class="glyphicon glyphicon-heart">test</i></button>
-		        <button class="btn btn-danger"><i class="glyphicon glyphicon-headphones"></i>test2</button>
-		        <button class="btn btn-danger"><i class="icon-white icon-star-empty"></i>test</button>
-		    </div>
-		    <ul>
-		        <li><a href="#link1">Menu 1</a></li>
-		        <li><a href="#link2">Menu 2</a></li>
-		        <li><a href="#link3">Menu 3</a></li>
-		        <li><a href="#link4">Menu 4</a></li>
-		        <li><a href="#link5">Menu 5</a></li>
-		    </ul>
-		</div>
 		
-		<button id="simple-menu-button">hoge</button>
+		<select id='custom-headers' multiple='multiple'>
+		  <option value='elem_1' selected>elem 1</option>
+		  <option value='elem_2'>elem 2</option>
+		  <option value='elem_3'>elem 3</option>
+		  <option value='elem_4' selected>elem 4</option>
+		  <option value='elem_100'>elem 100</option>
+		</select>
 		
-		<div id="div_hoge1">
-		    <h2>HOGE1</h2>
-		</div>
-		<div id="div_hoge2" style="display:none;">
-		    <h2>HOGE2</h2>
-		</div>
-		<div id="div_hoge3" style="display:none;">
-		    <h2>HOGE3</h2>
-		</div>
 		
-		<button id="btn_hoge1">Kick HOGE1</button>
-		<button id="btn_hoge2">Kick HOGE2</button>
-		<button id="btn_hoge3">Kick HOGE3</button>
+		
+		
+		
 		
 
         <script>
-			$(document).ready(function() {
-			    $('#simple-menu-button').sidr();                    // リンクにトリガーがバインドされる
-				$('#btn_hoge1').on('click', function() {
-					$('#div_hoge1').show();
-					$('#div_hoge2').hide();
-					$('#div_hoge3').hide();
-				});
-				$('#btn_hoge2').on('click', function() {
-					$('#div_hoge1').hide();
-					$('#div_hoge2').show();
-					$('#div_hoge3').hide();
-				});
-				$('#btn_hoge3').on('click', function() {
-					$('#div_hoge1').hide();
-					$('#div_hoge2').hide();
-					$('#div_hoge3').show();
-				});
-			});
+		$('.searchable').selectMultiple({
+  selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",
+  afterInit: function(ms){
+    var that = this,
+        $selectableSearch = that.$selectableUl.prev(),
+        selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable';
+
+    that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+    .on('keydown', function(e){
+      if (e.which === 40){
+        that.$selectableUl.focus();
+        return false;
+      }
+    });
+  },
+  afterSelect: function(){
+    this.qs1.cache();
+  },
+  afterDeselect: function(){
+    this.qs1.cache();
+  }
+});
 		</script>
     </body>
 </html>
