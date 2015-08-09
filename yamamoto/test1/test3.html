@@ -1,0 +1,356 @@
+﻿<html>
+<!--// HEAD //////////////////////////////////////////////////////////-->
+<head>
+	<title>Joympics</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/test1.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.4.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/jquery-ui-1.11.4.custom/jquery-ui.min.css" />
+	<style>
+	<!--
+		h1#title { 
+			font-size:33px;
+			font-weight: bold;
+			margin:15px;
+		}
+		div.div_btn_side {
+			width: 100%;
+			text-align:center;
+		}
+		button.btn_side {
+			width:32%;
+		}
+		div.div_search {
+			position: fixed;
+			margin: 5px;
+			background-color: white;
+			padding: 2px 5px;
+			z-index: 9;
+		}
+		.fa {
+			font-size: 25px;
+			cursor: pointer;
+			margin-top: 3px;
+			position: relative;
+			top: 4px;
+		}
+		li {
+			margin: 5px 0px;
+		}
+		
+		button.btn-width99 {
+			width: 95%;
+			margin: 2px 0px;
+		}
+		button.btn-primary.focus-manual {
+			background-color: #ff55aa;
+		}
+		button.btn-success.focus-manual {
+			background-color: #ff55aa;
+		}
+		div.ui-dialog {
+			z-index: 99999999;
+		}
+		
+		#close_sidr {
+			font-size: 20px;
+			color: #888888;
+			cursor: pointer;
+			position: absolute;
+			right: 15px;
+			top: 18px;
+		}
+		
+		#map_canvas{
+		  max-width: 1000px;
+		  max-height: 800px;
+		}
+		.gmnoprint {
+			margin-top: 60px;
+		}
+	-->
+	</style>
+</head>
+
+<!--// BODY //////////////////////////////////////////////////////////-->
+<body>
+	<div class="text-center" id="sidr">
+		<i id="close_sidr" class="glyphicon glyphicon-chevron-left"></i>
+		<h1 id="title">Joympics !!</h1>
+		<div class="btn-group div_btn_side">
+			<button id="btn_hoge1" class="btn btn-warning btn_side"><i class="glyphicon glyphicon-heart"></i>&nbsp;使い方</button>
+			<button id="btn_hoge2" class="btn btn-primary btn_side disabled"><i class="glyphicon glyphicon-headphones"></i>&nbsp;応援</button>
+			<button id="btn_hoge3" class="btn btn-success btn_side disabled"><i class="glyphicon glyphicon-book"></i>&nbsp;言語</button>
+	    </div>
+		<hr noshade="noshade">
+		
+		<div id="div_hoge1">
+			<ol style="text-align:left;">
+				<li>まずは、ユーザー登録をしよう！</li>
+				<li>応援したい選手を登録しよう！</li>
+				<li>マップに表示された同じ仲間の共に駆けつけよう！</li>
+				<li>駆けつけた仲間と一緒にオリンピックを盛り上がろう！</li>
+				<li>そのあとも、国際交流をエンジョイ！</li>
+			</ol>
+			<button id="btn_join" class="btn btn-danger" style="width:95%; height:45px; font-size:25px;">参加 !!</button>
+		</div>
+		
+		<div id="div_hoge2">
+			<ol style="text-align:left;">
+				<li>選手・競技を選択</li>
+				<li>仲間をマップに表示！</li>
+			</ol>
+			<ul>
+				<li><button type="button" class="btn btn-primary btn-width99">ウサイン・ボルト</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">陸上(100M)</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">陸上(200M)</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">サッカー(ジャマイカ代表)</button></li>
+				<li><button type="button" class="btn btn-primary btn-width99">水泳</button></li>
+			</ul>
+			<button id="btn_set_sport" class="btn btn-warning" style="width:95%; font-size:20px; font-weight:bold;">設定</button>
+		</div>
+		
+		<div id="div_hoge3">
+			<ol style="text-align:left;">
+				<li>話せる言語を選択</li>
+				<li>仲間をマップに表示！</li>
+			</ol>
+			<ul>
+				<li><button type="button" class="btn btn-success btn-width99">日本語</button></li>
+				<li><button type="button" class="btn btn-success btn-width99">英語</button></li>
+				<li><button type="button" class="btn btn-success btn-width99">フランス語</button></li>
+			</ul>
+			<button id="btn_set_lang" class="btn btn-warning" style="width:95%; font-size:20px; font-weight:bold;">設定</button>
+		</div>
+	</div>
+		<div class="div_search">
+			<span id="simple-menu-button" class="fa fa-bars"></span>
+			<input id="search_text" type="text" placeholder="検索" class="form-control" style="display:inline; width:200px;" />
+			<button id="btn_search" class="btn btn-info">検索</button>
+		</div>
+		
+		<div class="mod-canvas">
+			<div id="map_canvas"></div>
+		</div>
+	</div>
+
+	<div id="div_dialog_certify">
+		<h3>アプリを利用して認証</h3>
+	</div>
+	<div id="div_dialog_sport">
+		<h3>応援する競技・選手を登録</h3>
+	</div>
+	<div id="div_dialog_lang">
+		<h3>話せる言語を登録</h3>
+	</div>
+
+<!--// SCRIPT ////////////////////////////////////////////////////////-->
+<script type="text/javascript" charset="UTF-8" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="js/jquery.sidr.min.js"></script>
+<script type="text/javascript" charset="UTF-8" src="lib/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+
+<script>
+$(document).ready(function() {
+	$('#simple-menu-button').sidr();
+	$('#close_sidr').sidr();
+
+	var bindEvents = function() {
+		$('#btn_hoge1').on('click', function() {
+			$('#div_hoge1').show();
+			$('#div_hoge2').hide();
+			$('#div_hoge3').hide();
+		});
+		$('#btn_hoge2:not(.disabled)').on('click', function() {
+			$('#div_hoge1').hide();
+			$('#div_hoge2').show();
+			$('#div_hoge3').hide();
+		});
+		$('#btn_hoge3:not(.disabled)').on('click', function() {
+			$('#div_hoge1').hide();
+			$('#div_hoge2').hide();
+			$('#div_hoge3').show();
+		});
+	};
+
+	$('#btn_join').on('click', function() {
+		$dialogCertify.dialog('open');
+	});
+	$('#btn_set_sport').on('click', function() {
+		$dialogSetSport.dialog('open');
+	});
+	$('#btn_set_lang').on('click', function() {
+		$dialogSetLang.dialog('open');
+	});
+
+	$('button.btn-width99').on('click', function() {
+		if ($(this).hasClass('focus-manual')) {
+			$(this).removeClass('focus-manual');
+		} else {
+			$(this).addClass('focus-manual');
+		}
+	});
+
+	// 認証Dialog
+	var $dialogCertify = $('#div_dialog_certify').dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: 'ユーザー認証',
+		buttons: {
+			"認証": function() {
+				$('.btn').removeClass('disabled');
+				bindEvents();
+				// $('#btn_join').addClass('disabled');
+				$dialogCertify.dialog( "close" );
+			},
+			'閉じる' : function() {
+				$dialogCertify.dialog( "close" );
+			}
+		},
+		close: function() {
+		}
+	});
+
+	// 競技・選手設定Dialog
+	var $dialogSetSport = $('#div_dialog_sport').dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: '競技・選手設定',
+		buttons: {
+			"決定": function() {
+				$dialogSetSport.dialog( "close" );
+			},
+			'閉じる' : function() {
+				$dialogSetSport.dialog( "close" );
+			}
+		},
+		close: function() {
+		}
+	});
+
+	// 言語設定Dialog
+	var $dialogSetLang = $('#div_dialog_lang').dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: '言語設定',
+		buttons: {
+			"決定": function() {
+				$dialogSetLang.dialog( "close" );
+			},
+			'閉じる' : function() {
+				$dialogSetLang.dialog( "close" );
+			}
+		},
+		close: function() {
+		}
+	});
+
+	// Iint
+	$('#simple-menu-button').click();
+});
+
+// 初期値
+var address01 = "東京駅";
+$(document).ready(function () {
+	$("#search_text").on('keydown', function(e) {
+		if (e.keyCode != 13)
+			return;
+		address01 = $("#search_text").val();
+		initialize() 
+	});
+	$('#btn_search').on('click', function() {
+		address01 = $("#search_text").val();
+		initialize() 
+	});
+});
+
+var $mapCanvas = $('#map_canvas');
+$mapCanvas.height($(window).height());
+$mapCanvas.width($(window).width());
+var mapCanvas = document.getElementById('map_canvas');
+var zoom_level = 15;
+var markers = new Array();
+
+// GoogleMaps
+function initialize() {
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode({
+			'address' : address01
+		},
+		function (result, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				var latlng = result[0].geometry.location;
+				var myOptions = {
+				    zoom : 15, // ズームレベル
+				    center : latlng, // 取得した緯度経度を中心に
+				    mapTypeId : google.maps.MapTypeId.ROADMAP 
+				};
+				var map = new google.maps.Map(mapCanvas, myOptions);
+				var marker = new google.maps.Marker({
+				    position : latlng,
+				    map : map 
+				});
+				
+				google.maps.event.addListener(map, 'bounds_changed', function () {
+					var latlngBounds = map.getBounds();
+					var swLatlng = latlngBounds.getSouthWest();
+					var swlat = swLatlng.lat();
+					var swlng = swLatlng.lng();
+					var neLatlng = latlngBounds.getNorthEast();
+					var nelat = neLatlng.lat();
+					var nelng = neLatlng.lng();
+				});
+				
+				google.maps.event.addListener(map, 'zoom_changed', function () {
+					zoom_level = map.getZoom();
+					if (zoom_level >= 0) {
+						var data = new Array();
+						data.push({ lat : '35.681382', lng : '139.766084', name : '東京駅' });
+						data.push({ lat : '35.688687', lng : '139.77323', name : '大手町駅' });
+						data.push({ lat : '35.68255', lng : '139.76437299999998', name : '丸のうちビルディング' });
+						if (zoom_level != 15) {
+							for (i = 0; i < data.length; i++) {
+								markers[i] = new google.maps.Marker({
+									position : new google.maps.LatLng (data[i].lat, data[i].lng),
+									map : map, 
+									icon : new google.maps.MarkerImage('images/france.png' , new google.maps.Size(31, 31), new google.maps.Point(0, 0)) 
+							    });
+							}
+						} else {
+							markers.forEach(function (mkr, idx) {
+								mkr.setMap(map);
+							});
+							markers[0] = new google.maps.Marker({
+								position : new google.maps.LatLng(data[0].lat, data[0].lng),
+								map : map,
+								icon : new google.maps.MarkerImage('images/france1.png', 
+								new google.maps.Size(62, 62),
+								new google.maps.Point(0, 0)) 
+							});
+						}
+					} else {
+						markers.forEach(function (mkr, idx) {
+							mkr.setMap(map);
+						});
+					}
+				});
+			} else {
+				// alert('取得できませんでした…');
+			}
+		});
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<!--//////////////////////////////////////////////////////////////////-->
+</body>
+</html>
