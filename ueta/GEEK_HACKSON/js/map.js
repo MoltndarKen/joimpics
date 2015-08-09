@@ -102,8 +102,12 @@ function initialize() {//エラーが出たのでもう一度位にシャライ�
 
               }
             }else{
+              var marker_list = new google.maps.MVCArray();
               markers.forEach(function(mkr, idx){
-                mkr.setMap(map);
+                marker_list.push(mkr);
+              });
+              marker_list.forEach(function(mkr, idx){
+                mkr.setMap(null);
               });
               markers[0] = new google.maps.Marker({
                   position: new google.maps.LatLng(data[0].lat, data[0].lng),
@@ -113,9 +117,13 @@ function initialize() {//エラーが出たのでもう一度位にシャライ�
               });
             }
           }else{
-            markers.forEach(function(mkr, idx){
-              mkr.setMap(map);
-            });
+              var marker_list = new google.maps.MVCArray();
+                markers.forEach(function(mkr, idx){
+                  marker_list.push(mkr);
+                });
+                marker_list.forEach(function(mkr, idx){
+                  mkr.setMap(null);
+              });
             //googleマーカーを変えられる
           }
         });
