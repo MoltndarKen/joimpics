@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bootstrapデフォルトテンプレート</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- styles -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.sidr.dark.css">
+		<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="js/jquery.sidr.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		
+		
+		
+		
+		
+    </head>
+
+    <body>
+        
+		
+		<select id='custom-headers' multiple='multiple'>
+		  <option value='elem_1' selected>elem 1</option>
+		  <option value='elem_2'>elem 2</option>
+		  <option value='elem_3'>elem 3</option>
+		  <option value='elem_4' selected>elem 4</option>
+		  <option value='elem_100'>elem 100</option>
+		</select>
+		
+		
+		
+		
+		
+		
+
+        <script>
+		$('.searchable').selectMultiple({
+  selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",
+  afterInit: function(ms){
+    var that = this,
+        $selectableSearch = that.$selectableUl.prev(),
+        selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable';
+
+    that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+    .on('keydown', function(e){
+      if (e.which === 40){
+        that.$selectableUl.focus();
+        return false;
+      }
+    });
+  },
+  afterSelect: function(){
+    this.qs1.cache();
+  },
+  afterDeselect: function(){
+    this.qs1.cache();
+  }
+});
+		</script>
+    </body>
+</html>
