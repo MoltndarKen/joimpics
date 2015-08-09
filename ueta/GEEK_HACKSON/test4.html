@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--// HEAD //////////////////////////////////////////////////////////-->
+<head>
+	<meta charset="UTF-8">
+	<title>googleMapsAPI</title>
+	<style>
+	<!--
+	#map_canvas{
+	  max-width: 600px;
+	  max-height: 600px;
+	  min-width: 400px;
+	  min-height: 400px;
+	}
+	-->
+	</style>
+</head>
+
+<!--// BODY //////////////////////////////////////////////////////////-->
+<body>
+	<div class="mod-canvas">
+	    <div id="map_canvas"></div>
+	</div>
+	<!-- <span class="js-address">東京駅</span> -->
+	<input class="js-address" type="text" />
+	<input id="Button1" type="button" value="button" />
+	<div id="output"></div>
+
+<!--// SCRIPT ////////////////////////////////////////////////////////-->
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<!-- Google map Script -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<!-- map script -->
+<script src="js/map.js"></script>
+
+<!--//////////////////////////////////////////////////////////////////-->
+</body>
+</html>
