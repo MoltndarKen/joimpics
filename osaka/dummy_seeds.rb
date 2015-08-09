@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 @supporter = Supporter.new
 @supporter.name = 'Jacob'
 @supporter.lang = 'en'
