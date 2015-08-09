@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* リセット
+===================================================== */
+
+body {
+  margin:0px;
+  paddin:0px;
+  font-size:14px;
+  color:#333;
+  font-family:"メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+img {
+  border:none;
+}
+
+h1,h2,h3,h4,h5,h6,
+img,p,ul,li,dl,dt,dd,
+a,table,tr,td,th,form {
+  margin:0px;
+  padding:0px;
+}
+
+ul,li {
+  list-style-type:none;
+}
+
+a:link {
+    color:#fff;
+    font-style:normal;
+    text-decoration:none;
+}
+
+a:visited {
+    color:#fff;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#CCC;
+    font-style:normal;
+    text-decoration:none;
+    -moz-opacity: 0.7;
+  opacity: 0.7;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=70);
+}
+
+a:active {
+    text-decoration:none;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  font-size:0;
+  clear: both;
+  visibility:hidden;
+}
+
+.mod-canvas {
+  position: relative;
+  overflow: hidden;
+  width:400px;
+  height: 390px;
+  margin:0;
+}
+#map_canvas{
+  width: 400px;
+  height: 390px;
+}

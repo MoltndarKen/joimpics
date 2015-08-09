@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title></title>
+  <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+  <!-- ファイルがない -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $("#Button1").click(function () {
+          var inputText = $("#address_search").val();
+          //varがないとグローバル変数として扱われる
+                    console.log(inputText)
+          $("#output").text(inputText);
+          //アウトプットタグの中にインプットテキストを書き込む
+        })
+    })
+  </script></head>
+<body>
+  <input id="address_search" type="text" />
+  <input id="Button1" type="button" value="button" />
+  <div id="output"></div>
+  <!--  -->
+</body>
+</html>
