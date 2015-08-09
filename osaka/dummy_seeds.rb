@@ -6,146 +6,146 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Jacob'
-@suppoter.lang = 'en'
-@suppoter.sport = 'run100m'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.71759450000002'
-@suppoter.lat = '35.6787954'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Jacob'
+@supporter.lang = 'en'
+@supporter.sport = 'run100m'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.71759450000002'
+@supporter.lat = '35.6787954'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Jackson'
-@suppoter.lang = 'fr'
-@suppoter.sport = 'run100m'
-@suppoter.athlete = 'Shirai'
-@suppoter.long = '139.728792'
-@suppoter.lat = '35.6801453'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Jackson'
+@supporter.lang = 'fr'
+@supporter.sport = 'run100m'
+@supporter.athlete = 'Shirai'
+@supporter.long = '139.728792'
+@supporter.lat = '35.6801453'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Noah'
-@suppoter.lang = 'ja'
-@suppoter.sport = 'run100m'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.7100517'
-@suppoter.lat = '35.68517629999999'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Noah'
+@supporter.lang = 'ja'
+@supporter.sport = 'run100m'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.7100517'
+@supporter.lat = '35.68517629999999'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Lucas'
-@suppoter.lang = 'fr'
-@suppoter.sport = 'run200m'
-@suppoter.athlete = 'Kitajima'
-@suppoter.long = '139.75616309999998'
-@suppoter.lat = '35.6738235'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Lucas'
+@supporter.lang = 'fr'
+@supporter.sport = 'run200m'
+@supporter.athlete = 'Kitajima'
+@supporter.long = '139.75616309999998'
+@supporter.lat = '35.6738235'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Sophia'
-@suppoter.lang = 'en'
-@suppoter.sport = 'run200m'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.7100517'
-@suppoter.lat = '35.68517629999999'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Sophia'
+@supporter.lang = 'en'
+@supporter.sport = 'run200m'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.7100517'
+@supporter.lat = '35.68517629999999'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Chloe'
-@suppoter.lang = 'fr'
-@suppoter.sport = 'run200m'
-@suppoter.athlete = 'Nishikori'
-@suppoter.long = '139.7100517'
-@suppoter.lat = '35.6787954'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Chloe'
+@supporter.lang = 'fr'
+@supporter.sport = 'run200m'
+@supporter.athlete = 'Nishikori'
+@supporter.long = '139.7100517'
+@supporter.lat = '35.6787954'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Abigail'
-@suppoter.lang = 'ja'
-@suppoter.sport = 'run200m'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.71759450000002'
-@suppoter.lat = '35.6787954'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Abigail'
+@supporter.lang = 'ja'
+@supporter.sport = 'run200m'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.71759450000002'
+@supporter.lat = '35.6787954'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Anne'
-@suppoter.lang = 'en'
-@suppoter.sport = 'swim'
-@suppoter.athlete = 'Shirai'
-@suppoter.long = '139.69430280000006'
-@suppoter.lat = '35.6852321'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Anne'
+@supporter.lang = 'en'
+@supporter.sport = 'swim'
+@supporter.athlete = 'Shirai'
+@supporter.long = '139.69430280000006'
+@supporter.lat = '35.6852321'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'John'
-@suppoter.lang = 'ja'
-@suppoter.sport = 'swim'
-@suppoter.athlete = 'Gatlin'
-@suppoter.long = '139.73000000000002'
-@suppoter.lat = '35.66'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'John'
+@supporter.lang = 'ja'
+@supporter.sport = 'swim'
+@supporter.athlete = 'Gatlin'
+@supporter.long = '139.73000000000002'
+@supporter.lat = '35.66'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Jack'
-@suppoter.lang = 'en'
-@suppoter.sport = 'swim'
-@suppoter.athlete = 'Shirai'
-@suppoter.long = '139.74506900000006'
-@suppoter.lat = '35.662978'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Jack'
+@supporter.lang = 'en'
+@supporter.sport = 'swim'
+@supporter.athlete = 'Shirai'
+@supporter.long = '139.74506900000006'
+@supporter.lat = '35.662978'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Sara'
-@suppoter.lang = 'fr'
-@suppoter.sport = 'swim'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.71759450000002'
-@suppoter.lat = '35.680059'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Sara'
+@supporter.lang = 'fr'
+@supporter.sport = 'swim'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.71759450000002'
+@supporter.lat = '35.680059'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Sherry'
-@suppoter.lang = 'ja'
-@suppoter.sport = 'soccer'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.71412699999996'
-@suppoter.lat = '35.6896342'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Sherry'
+@supporter.lang = 'ja'
+@supporter.sport = 'soccer'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.71412699999996'
+@supporter.lat = '35.6896342'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Bob'
-@suppoter.lang = 'ja'
-@suppoter.sport = 'soccer'
-@suppoter.athlete = 'Nishikori'
-@suppoter.long = '139.71412699999996'
-@suppoter.lat = '35.680059'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Bob'
+@supporter.lang = 'ja'
+@supporter.sport = 'soccer'
+@supporter.athlete = 'Nishikori'
+@supporter.long = '139.71412699999996'
+@supporter.lat = '35.680059'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Tom'
-@suppoter.lang = 'en'
-@suppoter.sport = 'soccer'
-@suppoter.athlete = 'Kitajima'
-@suppoter.long = '139.69210069999997'
-@suppoter.lat = '35.6896342'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Tom'
+@supporter.lang = 'en'
+@supporter.sport = 'soccer'
+@supporter.athlete = 'Kitajima'
+@supporter.long = '139.69210069999997'
+@supporter.lat = '35.6896342'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Jenny'
-@suppoter.lang = 'ja'
-@suppoter.sport = 'soccer'
-@suppoter.athlete = 'Bolt'
-@suppoter.long = '139.7100517'
-@suppoter.lat = '35.68517629999999'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Jenny'
+@supporter.lang = 'ja'
+@supporter.sport = 'soccer'
+@supporter.athlete = 'Bolt'
+@supporter.long = '139.7100517'
+@supporter.lat = '35.68517629999999'
+@supporter.save
 
-@suppoter = Suppoter.new
-@suppoter.name = 'Rick'
-@suppoter.lang = 'fr'
-@suppoter.sport = 'run100m'
-@suppoter.athlete = 'Gatlin'
-@suppoter.long = '139.69131800000002'
-@suppoter.lat = '35.668954'
-@suppoter.save
+@supporter = Supporter.new
+@supporter.name = 'Rick'
+@supporter.lang = 'fr'
+@supporter.sport = 'run100m'
+@supporter.athlete = 'Gatlin'
+@supporter.long = '139.69131800000002'
+@supporter.lat = '35.668954'
+@supporter.save
