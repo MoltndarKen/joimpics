@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "supporters#index"
-  get '/joimpics/' => 'supporters#index'
+  get '/joympics/' => 'supporters#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
